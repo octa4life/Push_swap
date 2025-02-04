@@ -6,11 +6,11 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:24:38 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 13:14:50 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:18:17 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 int	p_error_syntax(char *str_n)
 {
@@ -60,7 +60,7 @@ void	p_free_stack(t_stack_node **stack)
 
 void	p_free_errors(t_stack_node **a)
 {
-	free_stack(a);
-	ft_printf("Error\n");
+	p_free_stack(a);
+	printf("Error\n");
 	exit(1);
 }

@@ -6,11 +6,11 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:17:39 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 13:49:23 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:20:38 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 int	main(int argc, char **argv)
 {
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 		else
 			sort_stacks(&a, &b);
 	}
-	free_stack(&a);
+	p_free_stack(&a);
 	return (0);
 }
 

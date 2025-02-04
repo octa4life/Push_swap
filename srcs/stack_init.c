@@ -6,11 +6,11 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:29:31 by obellil-          #+#    #+#             */
-/*   Updated: 2025/01/31 14:34:16 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:29:25 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 static long	atol(const char *nptr)
 {
@@ -74,6 +74,25 @@ void	stack_init(t_stack_node **a, char **argv)
 		if (error_duplicate (*a, (int)n))
 			free_error (a);
 		append_node (*a, (int)n);
+		i++;
+	}
+}
+void	init_stack_a(t_stack_node **a, char **argv)
+{
+	long	n;
+	int		i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (p_error_syntax(argv[i]))
+			p_free_errors(a);
+		n = ft_atol(argv[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			p_free_errors(a);
+		if (p_error_duplicate(*a, (int)n))
+			p_free_errors(a);
+		append_node(a, (int)n);
 		i++;
 	}
 }

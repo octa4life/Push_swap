@@ -6,11 +6,11 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:19:41 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 13:40:10 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:28:42 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 static void	push(t_stack_node **dest, t_stack_node **src)
 {
@@ -39,12 +39,12 @@ void	pa(t_stack_node **stack_a, t_stack_node **stack_b, bool p)
 {
 	push(stack_a, stack_b);
 	if (!p)
-		ft_printf("pa\n");
+		printf("pa\n");
 }
 
 void	pb(t_stack_node **stack_b, t_stack_node **stack_a, bool p)
 {
 	push(stack_b, stack_a);
 	if (!p)
-		ft_printf("pb\n");
+		printf("pb\n");
 }

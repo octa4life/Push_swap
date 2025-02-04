@@ -6,11 +6,11 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:47:27 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 13:53:11 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:14:07 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 void	current_i(t_stack_node *stack)
 {

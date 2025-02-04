@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/* ************************************************************************* */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 static void	swap(t_stack_node **head)
 {
@@ -29,14 +29,14 @@ void	sa(t_stack_node	**stack_a, bool p)
 {
 	swap(stack_a);
 	if (!p)
-		ft_printf("sa\n");
+		printf("sa\n");
 }
 
 void	sb(t_stack_node **stack_b, bool p)
 {
 	swap(stack_b);
 	if (!p)
-		ft_printf("sb\n");
+		printf("sb\n");
 }
 
 void	ss(t_stack_node **stack_a, t_stack_node **stack_b, bool p)
@@ -44,6 +44,6 @@ void	ss(t_stack_node **stack_a, t_stack_node **stack_b, bool p)
 	swap(stack_a);
 	swap(stack_b);
 	if (!p)
-		ft_printf("ss\n");
+		printf("ss\n");
 }
 

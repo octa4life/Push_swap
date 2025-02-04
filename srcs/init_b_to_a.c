@@ -6,11 +6,11 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 13:50:21 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 13:56:31 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:14:10 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 static void	set_target_b(t_stack_node *a, t_stack_node *b)
 {
