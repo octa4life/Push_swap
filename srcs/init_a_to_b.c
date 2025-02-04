@@ -6,7 +6,7 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:47:27 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 14:14:07 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:02:38 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,13 @@ static void	cost_check_a(t_stack_node *stack_a, t_stack_node *stack_b)
 	}
 }
 
-void	ft_check_cheapest(t_stack_node *stack)
+void	*ft_check_cheapest(t_stack_node *stack)
 {
 	long			cheapest_value;
 	t_stack_node	*cheapest_node;
 
 	if (!stack)
-		return ;
+		return NULL;
 	cheapest_value = LONG_MAX;
 	while (stack)
 	{
@@ -99,6 +99,7 @@ void	ft_check_cheapest(t_stack_node *stack)
 		stack = stack->next;
 	}
 	cheapest_node->cheapest = true;
+	return NULL;
 }
 
 void	init_nodes_a(t_stack_node *stack_a, t_stack_node *stack_b)

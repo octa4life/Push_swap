@@ -6,7 +6,7 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:32:54 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 14:14:46 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:58:43 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_stack_node	*find_min(t_stack_node *stack)
 
 	if (!stack)
 		return (NULL);
-	min = LONG_MAX;
+	min = LONG_MIN;
 	while (stack)
 	{
 		if (stack->nbr < min)
@@ -76,7 +76,7 @@ t_stack_node	*find_max(t_stack_node *stack)
 
 	if (!stack)
 		return (NULL);
-	max = LONG_MIN;
+	max = LONG_MAX;
 	while (stack)
 	{
 		if (stack->nbr > max)

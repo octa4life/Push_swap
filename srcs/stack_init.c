@@ -6,22 +6,22 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:29:31 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 14:29:25 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:42:28 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static long	atol(const char *nptr)
+static long ft_atol(const char *nptr)
 {
-	int		i;
-	int		sign;
-	long	vartempo;
+	long vartempo;
+	int sign;
+	int i;
 
-	i = 0;
-	sign = 1;
 	vartempo = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
+	sign = 1;
+	i = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
@@ -33,19 +33,19 @@ static long	atol(const char *nptr)
 	return (vartempo * sign);
 }
 
-static void	append_node(t_stack_node **stack, int n)
+static void append_node(t_stack_node **stack)
 {
-	t_stack_node	*node;
-	t_stack_node	*last_node;
+	t_stack_node *node;
+	t_stack_node *last_node;
 
-	if (stack)
-		return ;
+	if (!stack)
+		return;
 	node = malloc(sizeof(t_stack_node));
-	if(!node)
+	if (!node)
 		return;
 	node->next = NULL;
-	node->nbr = NULL;
-	if(!*stack)
+	node->nbr = 0;
+	if (!*stack)
 	{
 		*stack = node;
 		node->prev = NULL;
@@ -60,27 +60,8 @@ static void	append_node(t_stack_node **stack, int n)
 
 void	stack_init(t_stack_node **a, char **argv)
 {
-	long	n;
-	long	i;
-
-	i = 0;
-	while (argv[i])
-	{
-		if (error_syntax (argv[i]))
-			free_error(a);
-		n = atol(argv[i]);
-		if (n > INT_MAX || n < INT_MIN)
-			free_error(a);
-		if (error_duplicate (*a, (int)n))
-			free_error (a);
-		append_node (*a, (int)n);
-		i++;
-	}
-}
-void	init_stack_a(t_stack_node **a, char **argv)
-{
-	long	n;
-	int		i;
+	long n;
+	long i;
 
 	i = 0;
 	while (argv[i])
@@ -88,11 +69,8 @@ void	init_stack_a(t_stack_node **a, char **argv)
 		if (p_error_syntax(argv[i]))
 			p_free_errors(a);
 		n = ft_atol(argv[i]);
-		if (n > INT_MAX || n < INT_MIN)
-			p_free_errors(a);
-		if (p_error_duplicate(*a, (int)n))
-			p_free_errors(a);
-		append_node(a, (int)n);
+		append_node(a);
+		(*a)->nbr = (int)n;
 		i++;
 	}
 }
