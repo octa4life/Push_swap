@@ -6,7 +6,7 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:27:52 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 13:21:29 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:49:10 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static char	*get_nextw(char *s, char c)
 	return (nextw);
 }
 
-char	**split(char *s, char c)
+char	**my_split(char *s, char c)
 {
 	int		words_count;
 	char	**result_tab;

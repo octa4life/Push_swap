@@ -6,7 +6,7 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:40:41 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 11:59:42 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:02:39 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	 mov_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
 	before_push(stack_b,cheapest_n,'a');
 	pb(stack_a,stack_b,false);
 }
-static void	move_b_to_a(t_stack_node **stack_a, t_stack_node **stack_b )
+static void	move_b_to_a(t_stack_node **stack_a, t_stack_node **stack_b)
 {
 	before_push(stack_a, (*stack_b)->target_node,'a');
 	pa(stack_a, stack_b, false);

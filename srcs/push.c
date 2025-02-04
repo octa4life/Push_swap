@@ -6,7 +6,7 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:19:41 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 11:36:33 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:40:10 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,16 @@ static void	push(t_stack_node **dest, t_stack_node **src)
 		*dest = push_node;
 	}
 }
-void	pa(t_stack_node **a, t_stack_node **b, bool print)
+void	pa(t_stack_node **stack_a, t_stack_node **stack_b, bool p)
 {
-	push(a, b);
-	if (!print)
+	push(stack_a, stack_b);
+	if (!p)
 		ft_printf("pa\n");
 }
 
-void	pb(t_stack_node **b, t_stack_node **a, bool print)
+void	pb(t_stack_node **stack_b, t_stack_node **stack_a, bool p)
 {
-	push(b, a);
-	if (!print)
+	push(stack_b, stack_a);
+	if (!p)
 		ft_printf("pb\n");
 }

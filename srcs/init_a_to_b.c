@@ -6,7 +6,7 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:47:27 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 11:48:51 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:53:11 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,11 +103,11 @@ void	ft_check_cheapest(t_stack_node *stack)
 
 void	init_nodes_a(t_stack_node *stack_a, t_stack_node *stack_b)
 {
-	current_index(stack_a);
-	current_index(stack_b);
+	current_i(stack_a);
+	current_i(stack_b);
 	set_target_a(stack_a, stack_b);
-	cost_analysis_a(stack_a, stack_b);
-	set_cheapest(stack_a);
+	cost_check_a(stack_a, stack_b);
+	ft_check_cheapest(stack_a);
 }
 
 void	before_push(t_stack_node **stack,t_stack_node *top_node,char stack_name)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+         #
+#    By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/01 14:02:05 by edetoh            #+#    #+#              #
-#    Updated: 2025/01/28 18:04:29 by edetoh           ###   ########.fr        #
+#    Updated: 2025/02/04 14:08:54 by obellil-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,19 +38,19 @@ NC = \033[0m # No Color
 
 # =============================== SOURCES ===================================== #
 
-SRC_FILES	= chunk\
-		push_algo\
-		push_opti\
-		push_pars\
-		push_push\
-		push_reverse\
-		push_rotate\
-		push_sort\
-		push_stacks\
-		push_sw\
-		push_utils_2\
-		push_utils\
-		main\
+SRC_FILES	= handle_error.c\
+			init_a_to_b.c\
+			init_b_to_a.c\
+			push_swap.c\
+			push.c\
+			reverse_rotate.c\
+			rotate.c\
+			sort_stacks.c\
+			sort_three.c\
+			split.c\
+			stack_init.c\
+			stack_utils.c\
+			swap.c\
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(SRC_DIR), $(addsuffix .o, $(SRC_FILES)))
