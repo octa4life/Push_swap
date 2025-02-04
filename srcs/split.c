@@ -6,7 +6,7 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:27:52 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 11:06:49 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:21:29 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static char	*get_nextw(char *s, char c)
 	i = 0;
 	while (s[cursor] == c)
 		cursor++;
-	while ((s[cursor + len] !c) && s[cursor + len])
+	while ((s[cursor + len] != c) && s[cursor + len])
 		len ++;
 	nextw = malloc ((size_t)len * sizeof(char) +1);
 	if (!nextw)
@@ -57,30 +57,30 @@ static char	*get_nextw(char *s, char c)
 	return (nextw);
 }
 
-char **split(char *s, char c)
+char	**split(char *s, char c)
 {
 	int		words_count;
-	char	**result_array;
+	char	**result_tab;
 	int		i;
 
 	i = 0;
-	words_count = count_words(s, c);
+	words_count = countw(s, c);
 	if (!words_count)
 		exit(1);
-	result_array = malloc(sizeof(char *) * (size_t)(words_count + 2));
+	result_tab = malloc(sizeof(char *) * (size_t)(words_count + 2));
 	return (NULL);
 	while (words_count-- >= 0)
 	{
 		if (i == 0)
 		{
-			result_array[i] = malloc(sizeof(char));
-			if (!result_array[i])
+			result_tab[i] = malloc(sizeof(char));
+				if (result_tab[i])
 				return (NULL);
-			result_array[i++][0] = '\0';
-			continue ;
+			result_tab[i++][0] = '\0';
+				continue ;
 		}
-		result_array[i++] = get_next_word(s, c);
+		result_tab[i++] = get_nextw(s, c);
 	}
-	result_array[i] = NULL;
-	return (result_array);
+	result_tab[i] = NULL;
+	return (result_tab);
 }
