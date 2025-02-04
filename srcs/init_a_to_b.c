@@ -6,7 +6,7 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:47:27 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/03 17:23:45 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 11:48:51 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	set_target_a(t_stack_node *stack_a, t_stack_node *stack_b)
 	}
 }
 
-static void	cost_analysis_a(t_stack_node *stack_a, t_stack_node *stack_b)
+static void	cost_check_a(t_stack_node *stack_a, t_stack_node *stack_b)
 {
 	int	len_a;
 	int	len_b;
@@ -81,7 +81,7 @@ static void	cost_analysis_a(t_stack_node *stack_a, t_stack_node *stack_b)
 	}
 }
 
-void	set_cheapest(t_stack_node *stack)
+void	ft_check_cheapest(t_stack_node *stack)
 {
 	long			cheapest_value;
 	t_stack_node	*cheapest_node;
@@ -110,3 +110,23 @@ void	init_nodes_a(t_stack_node *stack_a, t_stack_node *stack_b)
 	set_cheapest(stack_a);
 }
 
+void	before_push(t_stack_node **stack,t_stack_node *top_node,char stack_name)
+{
+	while (*stack != top_node)
+	{
+		if (stack_name == 'a')
+		{
+			if (top_node->above_median)
+				ra(stack, false);
+			else
+				rra(stack, false);
+		}
+		else if (stack_name == 'b')
+		{
+			if (top_node->above_median)
+				rb(stack, false);
+			else
+				rrb(stack, false);
+		}
+	}
+}
