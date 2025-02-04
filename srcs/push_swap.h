@@ -6,7 +6,7 @@
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:28:12 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 15:36:39 by obellil-         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:53:39 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void					init_nodes_a(t_stack_node *stack_a, t_stack_node *stack_b);
 //static char			*get_nextw(char *s, char c);
 char					**my_split(char *s, char c);
 void					init_stack_a(t_stack_node **a, char **argv);
+void					init_nodes_b(t_stack_node *a, t_stack_node *b);
+
 
 // Part of Commands
 //static void			push(t_stack_node **dest, t_stack_node **src);
