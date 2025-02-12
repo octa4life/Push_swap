@@ -12,43 +12,46 @@
 
 #include "push_swap.h"
 
-int	p_error_syntax(char *str_n)
+int	error_syntax(char *str_n) 
 {
-	if (!(*str_n == '+' || *str_n == '-' || (*str_n >= '0' && *str_n <= '9')))
+	if (!(*str_n == '+'
+			|| *str_n == '-'
+			|| (*str_n >= '0' && *str_n <= '9'))) 
 		return (1);
-	if ((*str_n == '+' || *str_n == '-')
-		&& !(str_n[1] >= '0' && str_n[1] <= '9'))
+	if ((*str_n == '+'
+			|| *str_n == '-')
+		&& !(str_n[1] >= '0' && str_n[1] <= '9')) 
 		return (1);
-	while (*++str_n)
+	while (*++str_n) 
 	{
-		if (!(*str_n >= '0' && *str_n <= '9'))
+		if (!(*str_n >= '0' && *str_n <= '9')) 
 			return (1);
 	}
 	return (0);
 }
 
-int	p_error_duplicate(t_stack_node *stack_a, int n)
+int	error_duplicate(t_stack_node *a, int n) 
 {
-	if (!stack_a)
+	if (!a) 
 		return (0);
-	while (stack_a)
+	while (a) 
 	{
-		if (stack_a->nbr == n)
+		if (a->nbr == n) 
 			return (1);
-		stack_a = stack_a->next;
+		a = a->next; 
 	}
 	return (0);
 }
 
-void	p_free_stack(t_stack_node **stack)
+void	free_stack(t_stack_node **stack) 
 {
 	t_stack_node	*tmp;
 	t_stack_node	*current;
 
-	if (!stack)
+	if (!stack) 
 		return ;
 	current = *stack;
-	while (current)
+	while (current) 
 	{
 		tmp = current->next;
 		current->nbr = 0;
@@ -58,9 +61,9 @@ void	p_free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-void	p_free_errors(t_stack_node **a)
+void	free_errors(t_stack_node **a) 
 {
-	p_free_stack(a);
-	printf("Error\n");
+	free_stack(a);
+	ft_printf("Error\n");
 	exit(1);
 }

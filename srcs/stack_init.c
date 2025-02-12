@@ -12,40 +12,41 @@
 
 #include "push_swap.h"
 
-static long ft_atol(const char *nptr)
+static long	ft_atol(const char *s)
 {
-	long vartempo;
-	int sign;
-	int i;
+	long	result;
+	int		sign;
 
-	vartempo = 0;
-	sign = 1;
-	i = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	result = 0;
+	sign = 1; 
+	while (*s == ' ' || *s == '\t' || *s == '\n' || \
+			*s == '\r' || *s == '\f' || *s == '\v')
+		s++;
+	if (*s == '-' || *s == '+')
 	{
-		sign -= (nptr[i] == '-') * 2;
-		i++;
+		if (*s == '-')
+			sign = -1;
+		s++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-		vartempo = vartempo * 10 + (nptr[i++] - '0');
-	return (vartempo * sign);
+	while (ft_isdigit(*s))
+		result = result * 10 + (*s++ - '0');
+	return (result * sign);
 }
 
-static void append_node(t_stack_node **stack)
+static void	append_node(t_stack_node **stack, int n)
 {
-	t_stack_node *node;
-	t_stack_node *last_node;
+	t_stack_node	*node;
+	t_stack_node	*last_node;
 
 	if (!stack)
-		return;
+		return ;
 	node = malloc(sizeof(t_stack_node));
 	if (!node)
-		return;
+		return ;
 	node->next = NULL;
-	node->nbr = 0;
-	if (!*stack)
+	node->nbr = n;
+	node->cheapest = 0;
+	if (!(*stack))
 	{
 		*stack = node;
 		node->prev = NULL;
@@ -58,19 +59,59 @@ static void append_node(t_stack_node **stack)
 	}
 }
 
-void	stack_init(t_stack_node **a, char **argv)
+void	init_stack_a(t_stack_node **a, char **argv)
 {
-	long n;
-	long i;
+	long	n;
+	int		i;
 
 	i = 0;
 	while (argv[i])
 	{
-		if (p_error_syntax(argv[i]))
-			p_free_errors(a);
+		if (error_syntax(argv[i]))
+			free_errors(a);
 		n = ft_atol(argv[i]);
-		append_node(a);
-		(*a)->nbr = (int)n;
+		if (n > INT_MAX || n < INT_MIN)
+			free_errors(a);
+		if (error_duplicate(*a, (int)n))
+			free_errors(a); 
+		append_node(a, (int)n);
 		i++;
 	}
 }
+
+t_stack_node	*get_cheapest(t_stack_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}
+
+void	prep_for_push(t_stack_node **stack,
+						t_stack_node *top_node,
+						char stack_name)
+{
+	while (*stack != top_node)
+	{
+		if (stack_name == 'a')
+		{
+			if (top_node->above_median)
+				ra(stack, false);
+			else
+				rra(stack, false);
+		}
+		else if (stack_name == 'b')
+		{
+			if (top_node->above_median)
+				rb(stack, false);
+			else
+				rrb(stack, false);
+		}	
+	}
+}
+
