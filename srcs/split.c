@@ -35,6 +35,7 @@ static int	countw(char *s, char c)
 	}
 	return (count);
 }
+
 static char	*get_nextw(char *s, char c)
 {
 	static int	cursor;
@@ -48,7 +49,7 @@ static char	*get_nextw(char *s, char c)
 		cursor++;
 	while ((s[cursor + len] != c) && s[cursor + len])
 		len ++;
-	nextw = malloc ((size_t)len * sizeof(char) +1);
+	nextw = malloc ((size_t) len * sizeof (char) +1);
 	if (!nextw)
 		return (NULL);
 	while (s[cursor] == c && s[cursor])
@@ -74,10 +75,9 @@ char	**my_split(char *s, char c)
 		if (i == 0)
 		{
 			result_tab[i] = malloc(sizeof(char));
-				if (result_tab[i])
+			if (result_tab[i])
 				return (NULL);
 			result_tab[i++][0] = '\0';
-				continue ;
 		}
 		result_tab[i++] = get_nextw(s, c);
 	}

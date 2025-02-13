@@ -35,16 +35,18 @@ static void	push(t_stack_node **dest, t_stack_node **src)
 		*dest = push_node;
 	}
 }
+
 void	pa(t_stack_node **stack_a, t_stack_node **stack_b, bool p)
 {
 	push(stack_a, stack_b);
 	if (!p)
-		printf("pa\n");
+		ft_printf("pa\n");
 }
+
 
 void	pb(t_stack_node **stack_b, t_stack_node **stack_a, bool p)
 {
 	push(stack_b, stack_a);
 	if (!p)
-		printf("pb\n");
+		ft_printf("pb\n");
 }

@@ -12,38 +12,39 @@
 
 #include "push_swap.h"
 
-void	rotate_both(t_stack_node **stack_a,t_stack_node **stack_b,t_stack_node *cheapest_n)
+void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheap_n)
 {
-	while (*stack_b != cheapest_n->target_node
-		&& *stack_a != cheapest_n)
-		rr(stack_a, stack_b, false);
-	current_i (*stack_a);
-	current_i (*stack_b);
+	while (*b != cheap_n->target_node
+		&& *a != cheap_n)
+		rr(a, b, false);
+	current_i (*a);
+	current_i (*b);
 }
 
-void	rev_rotate_both(t_stack_node **stack_a,t_stack_node **stack_b,t_stack_node *cheapest_n)
+void	rev_rotate_both(t_stack_node **a,
+		t_stack_node **b, t_stack_node *cheap_n)
 {
-	while (*stack_b != cheapest_n->target_node
-		&& *stack_a != cheapest_n)
-		rrr(stack_a, stack_b, false);
-	current_i(*stack_a);
-	current_i(*stack_b);
+	while (*b != cheap_n->target_node
+		&& *a != cheap_n)
+		rrr(a, b, false);
+	current_i(*a);
+	current_i(*b);
 }
 
-void	move_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
+void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node	*cheapest_n;
+	t_stack_node	*cheap_n;
 
-	cheapest_n = ft_check_cheapest(*stack_a);
-	if (cheapest_n->above_median
-		&& cheapest_n->target_node->above_median)
-		rotate_both(stack_a, stack_b, cheapest_n);
-	else if (!(cheapest_n->above_median)
-		&& !(cheapest_n->target_node->above_median))
-		rev_rotate_both(stack_a, stack_b, cheapest_n);
-	before_push(stack_a, cheapest_n, 'a');
-	before_push(stack_b, cheapest_n->target_node, 'b');
-	pb(stack_b, stack_a, false);
+	cheap_n = ft_check_cheapest(*a);
+	if (cheap_n->above_median
+		&& cheap_n->target_node->above_median)
+		rotate_both(a, b, cheap_n);
+	else if (!(cheap_n->above_median)
+		&& !(cheap_n->target_node->above_median))
+		rev_rotate_both(a, b, cheap_n);
+	before_push(a, cheap_n, 'a');
+	before_push(b, cheap_n->target_node, 'b');
+	pb(b, a, false);
 }
 
 void	move_b_to_a(t_stack_node **a, t_stack_node **b)

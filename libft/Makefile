@@ -38,6 +38,8 @@ SRCS=	ft_atoi.c \
 	get_next_line.c\
 	ft_strlen.c\
 	ft_printf.c\
+	ft_printwords.c\
+	ft_num.c\
 
 
 OBJS=${SRCS:.c=.o}
