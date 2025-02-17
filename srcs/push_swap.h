@@ -23,16 +23,16 @@
 # include <stdbool.h>
 # include "../libft/libft.h"
 
-typedef struct	s_stack_node
+typedef struct s_stack_node
 {
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
 	int					nbr;
 	int					index;
 	int					push_cost;
 	bool				above_median;
 	bool				cheapest;
+	struct s_stack_node	*target_node;
+	struct s_stack_node	*next;
+	struct s_stack_node	*prev;
 }	t_stack_node;
 
 // Part of Errors
@@ -42,7 +42,7 @@ void					p_free_stack(t_stack_node **stack);
 void					p_free_errors(t_stack_node **a);
 
 // Part Stack initiation
-void					current_i(t_stack_node *stack);
+void					current_index(t_stack_node *stack);
 void					*ft_check_cheapest(t_stack_node *stack);
 void					init_nodes_a(t_stack_node *stack_a,
 							t_stack_node *stack_b);

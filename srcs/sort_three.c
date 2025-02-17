@@ -25,7 +25,6 @@ void	sort_three(t_stack_node **a)
 		sa (a, false);
 }
 
-
 void	before_push(t_stack_node **stack, t_stack_node *top_node, char stack_name)
 {
 	while (*stack != top_node)
@@ -69,4 +68,3 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 	current_i(*a);
 	min_on_top(a);
 }
-
