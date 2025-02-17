@@ -17,8 +17,8 @@ void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheap_n)
 	while (*b != cheap_n->target_node
 		&& *a != cheap_n)
 		rr(a, b, false);
-	current_i (*a);
-	current_i (*b);
+	current_index (*a);
+	current_index (*b);
 }
 
 void	rev_rotate_both(t_stack_node **a,
@@ -27,8 +27,8 @@ void	rev_rotate_both(t_stack_node **a,
 	while (*b != cheap_n->target_node
 		&& *a != cheap_n)
 		rrr(a, b, false);
-	current_i(*a);
-	current_i(*b);
+	current_index(*a);
+	current_index(*b);
 }
 
 void	move_a_to_b(t_stack_node **a, t_stack_node **b)
@@ -64,3 +64,23 @@ void	min_on_top(t_stack_node **a)
 	}
 }
 
+void	*ft_check_cheapest(t_stack_node *stack)
+{
+	long			cheapest_value;
+	t_stack_node	*cheapest_node;
+
+	if (!stack)
+		return NULL;
+	cheapest_value = LONG_MAX;
+	while (stack)
+	{
+		if (stack->push_cost < cheapest_value)
+		{
+			cheapest_value = stack->push_cost;
+			cheapest_node = stack;
+		}
+		stack = stack->next;
+	}
+	cheapest_node->cheapest = true;
+	return NULL;
+}
