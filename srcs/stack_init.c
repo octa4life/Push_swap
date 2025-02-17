@@ -79,19 +79,6 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	}
 }
 
-t_stack_node	*get_cheapest(t_stack_node *stack)
-{
-	if (!stack)
-		return (NULL);
-	while (stack)
-	{
-		if (stack->cheapest)
-			return (stack);
-		stack = stack->next;
-	}
-	return (NULL);
-}
-
 void	prep_for_push(t_stack_node **stack, t_stack_node *top_node,
 		char stack_name)
 {

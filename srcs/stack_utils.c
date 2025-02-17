@@ -56,7 +56,7 @@ t_stack_node	*find_min(t_stack_node *stack)
 
 	if (!stack)
 		return (NULL);
-	min = LONG_MAX;
+	min = LONG_MIN;
 	while (stack)
 	{
 		if (stack->nbr < min)
@@ -77,7 +77,7 @@ t_stack_node	*find_max(t_stack_node *stack)
 
 	if (!stack)
 		return (NULL);
-	max = LONG_MIN;
+	max = LONG_MAX;
 	while (stack)
 	{
 		if (stack->nbr > max)
