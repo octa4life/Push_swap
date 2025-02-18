@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 		argv = my_split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
+	init_stack_a(&a, argv +1);
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
@@ -36,5 +36,4 @@ int	main(int argc, char **argv)
 	p_free_stack(&a);
 	return (0);
 }
-
 

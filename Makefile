@@ -61,7 +61,7 @@ all:		$(NAME)
 
 $(NAME):	$(OBJ)
 			@echo "$(YELLOW)>>> Compilation de libft <<<$(DEF_COLOR)"
-			make -C $(LIBFT)
+			make -sC $(LIBFT)
 			cp $(LIBFT)/libft.a .
 			$(CC) $(CFLAGS) $(SRC) -o $(NAME) libft.a
 			@echo "$(GREEN)>>> libftprintf.a créé avec succès <<<$(DEF_COLOR)"
@@ -76,7 +76,7 @@ $(NAME):	$(OBJ)
 clean:
 			@echo "$(YELLOW)Cleaning object files...$(NC)"
 			$(RM) -f $(OBJ)
-			make clean -C $(LIBFT)
+			make clean -sC $(LIBFT)
 			$(RM) -f libft.a
 			@echo "$(GREEN)Object files cleaned!$(NC)"
 

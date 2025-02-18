@@ -12,20 +12,21 @@
 
 #include "push_swap.h"
 
-void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheap_n)
+void	rotate_both(t_stack_node **a, t_stack_node **b,
+						t_stack_node *cheapest_node)
 {
-	while (*b != cheap_n->target_node
-		&& *a != cheap_n)
+	while (*b != cheapest_node->target_node
+		&& *a != cheapest_node)
 		rr(a, b, false);
-	current_index (*a);
-	current_index (*b);
+	current_index(*a);
+	current_index(*b);
 }
 
-void	rev_rotate_both(t_stack_node **a,
-		t_stack_node **b, t_stack_node *cheap_n)
+void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
+								t_stack_node *cheapest_node)
 {
-	while (*b != cheap_n->target_node
-		&& *a != cheap_n)
+	while (*b != cheapest_node->target_node
+		&& *a != cheapest_node)
 		rrr(a, b, false);
 	current_index(*a);
 	current_index(*b);
@@ -33,23 +34,23 @@ void	rev_rotate_both(t_stack_node **a,
 
 void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node	*cheap_n;
+	t_stack_node	*cheapest_node;
 
-	cheap_n = ft_check_cheapest(*a);
-	if (cheap_n->above_median
-		&& cheap_n->target_node->above_median)
-		rotate_both(a, b, cheap_n);
-	else if (!(cheap_n->above_median)
-		&& !(cheap_n->target_node->above_median))
-		rev_rotate_both(a, b, cheap_n);
-	before_push(a, cheap_n, 'a');
-	before_push(b, cheap_n->target_node, 'b');
+	cheapest_node = ft_check_cheapest(*a);
+	if (cheapest_node->above_median
+		&& cheapest_node->target_node->above_median)
+		rotate_both(a, b, cheapest_node);
+	else if (!(cheapest_node->above_median)
+		&& !(cheapest_node->target_node->above_median))
+		rev_rotate_both(a, b, cheapest_node);
+	prep_for_push(a, cheapest_node, 'a');
+	prep_for_push(b, cheapest_node->target_node, 'b');
 	pb(b, a, false);
 }
 
 void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 {
-	before_push(a, (*b)->target_node, 'a');
+	prep_for_push(a, (*b)->target_node, 'a');
 	pa(a, b, false);
 }
 
@@ -64,23 +65,3 @@ void	min_on_top(t_stack_node **a)
 	}
 }
 
-void	*ft_check_cheapest(t_stack_node *stack)
-{
-	long			cheapest_value;
-	t_stack_node	*cheapest_node;
-
-	if (!stack)
-		return NULL;
-	cheapest_value = LONG_MAX;
-	while (stack)
-	{
-		if (stack->push_cost < cheapest_value)
-		{
-			cheapest_value = stack->push_cost;
-			cheapest_node = stack;
-		}
-		stack = stack->next;
-	}
-	cheapest_node->cheapest = true;
-	return NULL;
-}

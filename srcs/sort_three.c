@@ -18,14 +18,15 @@ void	sort_three(t_stack_node **a)
 
 	biggest_node = find_max(*a);
 	if (biggest_node == *a)
-		ra (a, false);
+		ra(a, false);
 	else if ((*a)->next == biggest_node)
-		rra (a, false);
-	if ((*a)->nbr > (*a)-> next->nbr)
-		sa (a, false);
+		rra(a, false);
+	if ((*a)->nbr > (*a)->next->nbr)
+		sa(a, false);
 }
 
-void	before_push(t_stack_node **stack, t_stack_node *top_node, char stack_name)
+void	before_push(t_stack_node **stack,
+			t_stack_node *top_node, char stack_name)
 {
 	while (*stack != top_node)
 	{
@@ -45,6 +46,7 @@ void	before_push(t_stack_node **stack, t_stack_node *top_node, char stack_name)
 		}
 	}
 }
+
 void	sort_stacks(t_stack_node **a, t_stack_node **b)
 {
 	int	len_a;

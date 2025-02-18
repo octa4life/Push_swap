@@ -41,20 +41,13 @@ int						p_error_duplicate(t_stack_node *stack_a, int n);
 void					p_free_stack(t_stack_node **stack);
 void					p_free_errors(t_stack_node **a);
 
-// Part Stack initiation
+// Part of Stack initiation
 void					current_index(t_stack_node *stack);
-void					*ft_check_cheapest(t_stack_node *stack);
+t_stack_node			*ft_check_cheapest(t_stack_node *stack);
 void					init_nodes_a(t_stack_node *stack_a,
 							t_stack_node *stack_b);
 void					before_push(t_stack_node **stack,
 							t_stack_node *top_node, char stack_name);
-void					rotate_both(t_stack_node **a,
-							t_stack_node **b, t_stack_node *cheap_n);
-void					rev_rotate_both(t_stack_node **a,
-							t_stack_node **b, t_stack_node *cheap_n);
-void					move_a_to_b(t_stack_node **a, t_stack_node **b);
-void					move_b_to_a(t_stack_node **a, t_stack_node **b);
-void					min_on_top(t_stack_node **a);
 void					sort_stacks(t_stack_node **a, t_stack_node **b);
 void					sort_three(t_stack_node **a);
 char					**my_split(char *s, char c);
@@ -66,6 +59,16 @@ t_stack_node			*find_min(t_stack_node *stack);
 t_stack_node			*find_max(t_stack_node *stack);
 void					init_nodes_b(t_stack_node *a, t_stack_node *b);
 void					init_stack_a(t_stack_node **a, char **argv);
+void					prep_for_push(t_stack_node **stack,
+							t_stack_node *top_node, char stack_name);
+void					rotate_both(t_stack_node **a, t_stack_node **b,
+							t_stack_node *cheapest_node);
+void					rev_rotate_both(t_stack_node **a, t_stack_node **b,
+							t_stack_node *cheapest_node);
+void					move_a_to_b(t_stack_node **a, t_stack_node **b);
+void					move_b_to_a(t_stack_node **a, t_stack_node **b);
+void					min_on_top(t_stack_node **a);
+
 
 // Part of Commands
 void					pa(t_stack_node **a, t_stack_node **b, bool print);

@@ -49,7 +49,7 @@ static char	*get_nextw(char *s, char c)
 		cursor++;
 	while ((s[cursor + len] != c) && s[cursor + len])
 		len ++;
-	nextw = malloc ((size_t) len * sizeof (char) +1);
+	nextw = malloc((size_t) len * sizeof(char) + 1);
 	if (!nextw)
 		return (NULL);
 	while (s[cursor] == c && s[cursor])
