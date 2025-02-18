@@ -23,27 +23,28 @@ static void	swap(t_stack_node **head)
 		(*head)->next->prev = (*head)->prev;
 	(*head)->next = (*head)->prev;
 	(*head)->prev = NULL;
+} 
+
+void	sa(t_stack_node	**a, bool print)
+{
+	swap(a);
+	if (!print)
+		ft_printf("sa\n");
 }
 
-void	sa(t_stack_node	**stack_a, bool p)
+void	sb(t_stack_node **b, bool print)
 {
-	swap(stack_a);
-	if (!p)
-		printf("sa\n");
+	swap(b);
+	if (!print)
+		ft_printf("sb\n");
 }
 
-void	sb(t_stack_node **stack_b, bool p)
+void	ss(t_stack_node **a, t_stack_node **b, bool print)
 {
-	swap(stack_b);
-	if (!p)
-		printf("sb\n");
+	swap(a);
+	swap(b);
+	if (!print)
+		ft_printf("ss\n");
 }
 
-void	ss(t_stack_node **stack_a, t_stack_node **stack_b, bool p)
-{
-	swap(stack_a);
-	swap(stack_b);
-	if (!p)
-		printf("ss\n");
-}
 

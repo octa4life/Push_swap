@@ -71,19 +71,24 @@ void					min_on_top(t_stack_node **a);
 
 
 // Part of Commands
-void					pa(t_stack_node **a, t_stack_node **b, bool print);
-void					pb(t_stack_node **b, t_stack_node **a, bool print);
-void					rra(t_stack_node **stack_a, bool p);
-void					rrb(t_stack_node **stack_b, bool p);
-void					rrr(t_stack_node **stack_a,
-							t_stack_node **stack_b, bool p);
-void					ra(t_stack_node **stack_a, bool p);
-void					rb(t_stack_node **stack_b, bool p);
-void					rr(t_stack_node **stack_a,
-							t_stack_node **stack_b, bool p);
-void					sa(t_stack_node	**stack_a, bool p);
-void					sb(t_stack_node **stack_b, bool p);
-void					ss(t_stack_node **stack_a,
-							t_stack_node **stack_b, bool p);
+// swap.c
+void	sa(t_stack_node **a, bool print);
+void	sb(t_stack_node **b, bool print);
+void	ss(t_stack_node **a, t_stack_node **b, bool print);
+
+// push.c
+void	pa(t_stack_node **a, t_stack_node **b, bool print);
+void	pb(t_stack_node **b, t_stack_node **a, bool print);
+
+// rotate.c
+void	ra(t_stack_node **a, bool print);
+void	rb(t_stack_node **b, bool print);
+void	rr(t_stack_node **a, t_stack_node **b, bool print);
+
+// reverse_rotate.c
+void	rra(t_stack_node **a, bool print);
+void	rrb(t_stack_node **b, bool print);
+void	rrr(t_stack_node **a, t_stack_node **b, bool print);
+
 
 #endif

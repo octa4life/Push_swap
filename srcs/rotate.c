@@ -18,32 +18,33 @@ static void	rotate(t_stack_node **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	last_node = find_last(*stack);
+	last_node = find_last(*stack); 
 	last_node->next = *stack;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
 	last_node->next->prev = last_node;
 	last_node->next->next = NULL;
-}
+} // rotate		
 
-void	ra(t_stack_node **stack_a, bool p)
+void	ra(t_stack_node **a, bool print)
 {
-	rotate(stack_a);
-	if (!p)
-		printf("ra\n");
-}
+	rotate(a);
+	if (!print)
+		ft_printf("ra\n");
+} // ra
 
-void	rb(t_stack_node **stack_b, bool p)
+void	rb(t_stack_node **b, bool print)
 {
-	rotate(stack_b);
-	if (!p)
-		printf("rb\n");
-}
+	rotate(b);
+	if (!print)
+		ft_printf("rb\n");
+} // rb
 
-void	rr(t_stack_node **stack_a, t_stack_node **stack_b, bool p)
+void	rr(t_stack_node **a, t_stack_node **b, bool print)
 {
-	rotate(stack_a);
-	rotate(stack_b);
-	if (!p)
-		printf("rr\n");
-}
+	rotate(a);
+	rotate(b);
+	if (!print)
+		ft_printf("rr\n");
+} // rr
+
