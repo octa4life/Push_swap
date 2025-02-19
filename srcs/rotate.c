@@ -18,27 +18,27 @@ static void	rotate(t_stack_node **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	last_node = find_last(*stack); 
+	last_node = find_last(*stack);
 	last_node->next = *stack;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
 	last_node->next->prev = last_node;
 	last_node->next->next = NULL;
-} // rotate		
+}
 
 void	ra(t_stack_node **a, bool print)
 {
 	rotate(a);
 	if (!print)
 		ft_printf("ra\n");
-} // ra
+}
 
 void	rb(t_stack_node **b, bool print)
 {
 	rotate(b);
 	if (!print)
 		ft_printf("rb\n");
-} // rb
+}
 
 void	rr(t_stack_node **a, t_stack_node **b, bool print)
 {
@@ -46,5 +46,14 @@ void	rr(t_stack_node **a, t_stack_node **b, bool print)
 	rotate(b);
 	if (!print)
 		ft_printf("rr\n");
-} // rr
+}
 
+void	rotate_both(t_stack_node **a, t_stack_node **b,
+						t_stack_node *cheapest_node)
+{
+	while (*b != cheapest_node->target_node
+		&& *a != cheapest_node)
+		rr(a, b, false);
+	current_index(*a);
+	current_index(*b);
+}

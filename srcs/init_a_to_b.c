@@ -109,4 +109,3 @@ void	init_nodes_a(t_stack_node *a, t_stack_node *b)
 	cost_analysis_a(a, b);
 	set_cheapest(a);
 }
-

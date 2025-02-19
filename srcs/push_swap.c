@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
-	if (argc == 2)
+	if (argc == 2 && &isdigit)
 	{
 		split_args = my_split(argv[1], ' ');
 		if (!split_args)

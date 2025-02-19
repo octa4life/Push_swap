@@ -69,7 +69,6 @@ t_stack_node	*find_min(t_stack_node *stack)
 	return (min_node);
 }
 
-
 t_stack_node	*find_max(t_stack_node *stack)
 {
 	long			max;
