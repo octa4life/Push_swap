@@ -59,13 +59,14 @@ static void	append_node(t_stack_node **stack, int n)
 	}
 }
 
-
 void	init_stack_a(t_stack_node **a, char **argv)
 {
 	long	n;
 	int		i;
 
 	i = 0;
+	if (!a || !argv)
+		return ;
 	while (argv[i])
 	{
 		if (p_error_syntax(argv[i]))
@@ -79,7 +80,6 @@ void	init_stack_a(t_stack_node **a, char **argv)
 		i++;
 	}
 }
-
 
 void	prep_for_push(t_stack_node **stack, t_stack_node *top_node,
 		char stack_name)

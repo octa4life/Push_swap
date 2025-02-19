@@ -16,24 +16,15 @@ int	p_error_syntax(char *str_n)
 {
 	if (!(*str_n == '+' || *str_n == '-' || (*str_n >= '0'
 				&& *str_n <= '9')))
-	{
-		printf("test1");
 		return (1);
-	}
 	if ((*str_n == '+'
 			|| *str_n == '-')
 		&& !(str_n[1] >= '0' && str_n[1] <= '9'))
-	{
-		printf("test2");
 		return (1);
-	}
 	while (*++str_n)
 	{
 		if (!(*str_n >= '0' && *str_n <= '9'))
-		{
-			printf("test3");
 			return (1);
-		}
 	}
 	while (str_n[1] == 1)
 	{

@@ -84,3 +84,18 @@ char	**my_split(char *s, char c)
 	result_tab[i] = NULL;
 	return (result_tab);
 }
+
+void	free_split(char **argv)
+{
+	int	i;
+
+	if (!argv)
+		return ;
+	i = 0;
+	while (argv[i])
+	{
+		free(argv[i]);
+		i++;
+	}
+	free(argv);
+}
