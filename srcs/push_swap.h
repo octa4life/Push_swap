@@ -60,6 +60,9 @@ void					init_stack_a(t_stack_node **a, char **argv);
 void					prep_for_push(t_stack_node **stack,
 							t_stack_node *top_node, char stack_name);
 void					free_split(char **argv);
+int						check_quotes(char *s);
+void					free_tab(char **tab, int i);
+char					*get_nextw(char *s, char c);
 
 // Part of Commands
 void					rotate_both(t_stack_node **a, t_stack_node **b,

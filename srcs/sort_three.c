@@ -24,4 +24,9 @@ void	sort_three(t_stack_node **a)
 	if ((*a)->nbr > (*a)->next->nbr)
 		sa(a, false);
 }
-
+void	free_tab(char **tab, int i)
+{
+	while (--i >= 0)
+		free(tab[i]);
+	free(tab);
+}

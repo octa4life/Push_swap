@@ -12,24 +12,19 @@
 
 #include "push_swap.h"
 
+
 int	p_error_syntax(char *str_n)
 {
-	if (!(*str_n == '+' || *str_n == '-' || (*str_n >= '0'
-				&& *str_n <= '9')))
+	if (!str_n || (!(*str_n == '+' || *str_n == '-' || (*str_n >= '0' && *str_n <= '9'))))
 		return (1);
-	if ((*str_n == '+'
-			|| *str_n == '-')
-		&& !(str_n[1] >= '0' && str_n[1] <= '9'))
+	if ((*str_n == '+' || *str_n == '-') && !(str_n[1] >= '0' && str_n[1] <= '9'))
 		return (1);
-	while (*++str_n)
+	str_n++;
+	while (*str_n)
 	{
 		if (!(*str_n >= '0' && *str_n <= '9'))
 			return (1);
-	}
-	while (str_n[1] == 1)
-	{
-		write (1, &str_n, 1);
-		return (0);
+		str_n++;
 	}
 	return (0);
 }
@@ -70,4 +65,12 @@ void	p_free_errors(t_stack_node **a)
 	p_free_stack(a);
 	ft_printf("Error\n");
 	exit(1);
+}
+
+int	check_quotes(char *s)
+{
+	while (*s)
+		if (*s++ == '"')
+			return (1);
+	return (0);
 }

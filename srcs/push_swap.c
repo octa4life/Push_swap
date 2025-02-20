@@ -41,4 +41,3 @@ int	main(int argc, char **argv)
 	p_free_stack(&a);
 	return (0);
 }
-

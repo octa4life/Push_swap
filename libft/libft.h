@@ -59,9 +59,9 @@ void		ft_putstr(char *str);
 void		ft_putchar_length(char character, int *length);
 void		ft_string(char *args, int *length);
 void		ft_number(int number, int *length);
-void	ft_hexadecimal(unsigned int x, int *length, char x_or_x);
-void	ft_unsigned_int(unsigned int u, int *length);
-int		ft_pointer(size_t pointer, int *length);
+void		ft_hexadecimal(unsigned int x, int *length, char x_or_x);
+void		ft_unsigned_int(unsigned int u, int *length);
+int			ft_pointer(size_t pointer, int *length);
+int			ft_printf(const char *string, ...);
 
-int		ft_printf(const char *string, ...);
 #endif
