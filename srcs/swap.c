@@ -1,12 +1,12 @@
-/* ************************************************************************* */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obellil- <obellil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 13:22:29 by obellil-          #+#    #+#             */
-/*   Updated: 2025/02/04 13:45:25 by obellil-         ###   ########.fr       */
+/*   Created: 2025/02/20 10:29:35 by obellil-          #+#    #+#             */
+/*   Updated: 2025/02/20 10:29:35 by obellil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,26 @@ static void	swap(t_stack_node **head)
 		(*head)->next->prev = (*head)->prev;
 	(*head)->next = (*head)->prev;
 	(*head)->prev = NULL;
-} 
+}
 
 void	sa(t_stack_node	**a, bool print)
 {
-	swap(a);
+	swap (a);
 	if (!print)
 		ft_printf("sa\n");
 }
 
 void	sb(t_stack_node **b, bool print)
 {
-	swap(b);
+	swap (b);
 	if (!print)
 		ft_printf("sb\n");
 }
 
 void	ss(t_stack_node **a, t_stack_node **b, bool print)
 {
-	swap(a);
-	swap(b);
+	swap (a);
+	swap (b);
 	if (!print)
 		ft_printf("ss\n");
 }
-
-

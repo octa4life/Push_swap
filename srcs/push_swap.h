@@ -40,6 +40,9 @@ int						p_error_syntax(char *str_n);
 int						p_error_duplicate(t_stack_node *stack_a, int n);
 void					p_free_stack(t_stack_node **stack);
 void					p_free_errors(t_stack_node **a);
+void					free_split(char **argv);
+int						check_quotes(char *s);
+void					free_tab(char **tab, int i);
 
 // ui
 void					current_index(t_stack_node *stack);
@@ -59,9 +62,6 @@ void					init_nodes_b(t_stack_node *a, t_stack_node *b);
 void					init_stack_a(t_stack_node **a, char **argv);
 void					prep_for_push(t_stack_node **stack,
 							t_stack_node *top_node, char stack_name);
-void					free_split(char **argv);
-int						check_quotes(char *s);
-void					free_tab(char **tab, int i);
 char					*get_nextw(char *s, char c);
 
 // Part of Commands
@@ -87,6 +87,5 @@ void					rr(t_stack_node **a, t_stack_node **b, bool print);
 void					rra(t_stack_node **a, bool print);
 void					rrb(t_stack_node **b, bool print);
 void					rrr(t_stack_node **a, t_stack_node **b, bool print);
-
 
 #endif

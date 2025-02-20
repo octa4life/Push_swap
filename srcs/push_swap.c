@@ -12,26 +12,34 @@
 
 #include "push_swap.h"
 
+static int	parse_args(t_stack_node **a, int argc, char **argv)
+{
+	char	**split_args;
+
+	if (argc == 2)
+	{
+		split_args = my_split(argv[1], ' ');
+		if (!split_args)
+			return (1);
+		init_stack_a(a, split_args);
+		free_split(split_args);
+	}
+	else
+		init_stack_a(a, argv + 1);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
-	char			**split_args;
 
 	a = NULL;
 	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
-	if (argc == 2 && &isdigit)
-	{
-		split_args = my_split(argv[1], ' ');
-		if (!split_args)
-			return (1);
-		init_stack_a(&a, split_args);
-		free_split(split_args);
-	}
-	else
-		init_stack_a(&a, argv + 1);
+	if (parse_args(&a, argc, argv))
+		return (1);
 	if (!stack_sorted(a) && stack_len(a) == 2)
 		sa(&a, false);
 	else if (!stack_sorted(a) && stack_len(a) == 3)

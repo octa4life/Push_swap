@@ -38,8 +38,8 @@ static void	push(t_stack_node **dst, t_stack_node **src)
 
 void	pa(t_stack_node **a, t_stack_node **b, bool print)
 {
-	push(a, b); 
-	if (!print) 
+	push (a, b);
+	if (!print)
 		ft_printf("pa\n");
 }
 
